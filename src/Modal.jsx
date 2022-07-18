@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDom from 'react-dom';
 
 export default function Modal({ open, close, children }) {
   if (!open) return null;
@@ -20,12 +21,14 @@ export default function Modal({ open, close, children }) {
     zIndex: 1000,
     backgroundColor: 'rgba(0,0,0, 0.6)',
   };
-  return (
+
+  return ReactDom.createPortal(
     <div>
       <div style={OVERLAY} />
       <div style={MODAL_STYLE}>
         <button onClick={close}>Close Modal</button>&nbsp; {children}
       </div>
-    </div>
+    </div>,
+    document.getElementById('portal')
   );
 }
