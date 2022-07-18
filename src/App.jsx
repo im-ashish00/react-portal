@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
+import Modal from './Modal';
 
 export default function App() {
   const FIRST_BOX = {
@@ -7,14 +8,22 @@ export default function App() {
     zIndex: 1,
   };
   const OUTER_BOX_ON_TOP = {
-    zIndex: 2,
     position: 'relative',
+    zIndex: 2,
   };
+
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
-      <div className="first" style={FIRST_BOX}>
-        <button>Open modal</button>
+      <div className="parent" style={FIRST_BOX}>
+        <div className="first">
+          <button onClick={() => setIsOpen(true)}>Open modal</button>
+        </div>
+
+        <Modal open={isOpen} close={() => setIsOpen(false)}>
+          Children text of a Modal
+        </Modal>
       </div>
 
       <div className="second" style={OUTER_BOX_ON_TOP}>

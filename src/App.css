@@ -2,20 +2,24 @@
 *::before,
 *::after {
   margin: 0;
+  font-size: 1.1rem;
+}
+
+body {
+  padding: 10px;
 }
 
 button {
   padding: 1rem;
-  font-size: 1rem;
 }
 
 .first {
-  margin: 10px;
   margin-bottom: 2rem;
 }
 
 .second {
   padding: 10px;
-  background-color: #333;
-  color: #fff;
+  background-color: #fff;
+  color: #333;
+  margin-top: 2rem;
 }
